@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Eight Ball</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+
+<div class="title">
+    <h1 class="title1"> MAGIC 8 BALL </h1>
+    <h4 class="title2"> Concéntrese en su pregunta y / o escríbalo en el cuadro de abajo y pida la bola 8 mágica. La bola mágica 8 le da respuestas a sus preguntas. </h4>
+</div>
+
+<div class="ballImage">
+    <img src="img/8ball.jpg" class="rotate">
+</div>
+
+<form action="/api/question" class="form" method="post">
+    <input type="text" name="questionInput" placeholder="Your Question" id="1" class="questionInput">
+    <div class="ask">
+        <input type="submit" value="question" class="bottonQuestion">
+    </div>
+</form>
+
+<script src="main.js"></script>
+
+    {% if message %}
+        <p>{{ message }}</p>
+    {% endif %}
+</body>
+</html>
