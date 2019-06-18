@@ -6,7 +6,9 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Eight Ball</title>
-    <link rel="stylesheet" href="main.css">
+    {% block stylsheets %}
+    <link rel="stylesheet" href="{{ asset('css/main.css') }}">
+    {% endblock %}
 </head>
 <body>
 
@@ -15,9 +17,11 @@
     <h4 class="title2"> Concéntrese en su pregunta y / o escríbalo en el cuadro de abajo y pida la bola 8 mágica. La bola mágica 8 le da respuestas a sus preguntas. </h4>
 </div>
 
+{% block images %}
 <div class="ballImage">
-    <img src="img/8ball.jpg" class="rotate">
+    <img src="{{ asset('img/8ball.jpg') }}" class="rotate">
 </div>
+{% endblock images %}
 
 <form action="/api/question" class="form" method="post">
     <input type="text" name="questionInput" placeholder="Your Question" id="1" class="questionInput">
@@ -26,10 +30,12 @@
     </div>
 </form>
 
-<script src="main.js"></script>
+{% block javascripts %}
+<script src="{{ asset('js/main.js') }}"></script>
+{% endblock %}
 
     {% if message %}
-        <p>{{ message }}</p>
+        <p class="finalMessage">{{ message }}</p>
     {% endif %}
 </body>
 </html>
